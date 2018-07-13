@@ -109,6 +109,9 @@ class MeiDownloaderMiddleware(object):
 
 
 class IgnoreUrlMiddleware(object):
+    """
+    URL去重
+    """
 
     def __init__(self):
         self.r = redis.StrictRedis()
@@ -121,6 +124,9 @@ class IgnoreUrlMiddleware(object):
 
 
 class MeiUserAgentMiddleware(UserAgentMiddleware):
+    """
+    user-agent池中间件
+    """
 
     def __init__(self, user_agent):
         self.user_agent = user_agent
@@ -135,6 +141,9 @@ class MeiUserAgentMiddleware(UserAgentMiddleware):
 
 
 class MeiProxyMiddleware(object):
+    """
+    代理中间件
+    """
 
     proxyServer = "http://http-dyn.abuyun.com:9020"
     p_user = '****************'
