@@ -82,6 +82,7 @@ DEFAULT_REQUEST_HEADERS = {
 DOWNLOADER_MIDDLEWARES = {
     # 'mei.middlewares.MeiDownloaderMiddleware': 543,
     # 'mei.middlewares.IgnoreUrlMiddleware': 200,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 100,
     'mei.middlewares.MeiProxyMiddleware': 300,
     'mei.middlewares.MeiUserAgentMiddleware': 400,
 }
@@ -126,3 +127,8 @@ ITEM_PIPELINES = {
 # IMAGES_MIN_HEIGHT = 100                               # 图片的最小高度
 # IMAGES_MIN_WIDTH = 100                                # 图片的最小宽度
 # 图片的尺寸小于IMAGES_MIN_WIDTH*IMAGES_MIN_HEIGHT的图片都会被过滤
+
+# 报错处理: 重新抓取
+RETRY_ENABLED = True
+RETRY_TIMES = 3
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408]

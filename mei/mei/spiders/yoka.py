@@ -12,8 +12,6 @@ class YokaSpider(CrawlSpider):
     name = 'yoka'
     allow_domain = ['yoka.com']
 
-    # start_urls = ['http://brand.yoka.com/cosmetics/neutrogena/detail55896.htm']
-
     detailLinks = LinkExtractor(allow=(r'detail\d+.htm',), restrict_xpaths=('//div[@class="left"]//h2',))
     rules = [
         Rule(detailLinks, callback='parse_item'),

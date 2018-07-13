@@ -15,6 +15,9 @@ from twisted.enterprise import adbapi
 
 
 class MeiPipeline(object):
+    """
+    采用twisted的连接池组件调用pymysql驱动进行数据存储
+    """
 
     def __init__(self):
         dbparams = dict(
